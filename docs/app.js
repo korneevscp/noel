@@ -271,6 +271,7 @@ function renderCases() {
       <div class="num"></div><h4></h4><p class="hint"></p>
       <a class="dl" download></a>
       <form autocomplete="off"><input placeholder="B1{...}" spellcheck="false" aria-label="Flag"><button class="btn">Valider</button></form>
+      <p class="warn">⚠️ En présentiel, soumets tes flags sur le site CTF prévu par les organisateurs.</p>
       <p class="msg" aria-live="polite"></p>`;
     el.querySelector(".num").textContent = String(c.id).padStart(2, "0");
     el.querySelector("h4").textContent = c.title + " · " + c.type;
@@ -517,3 +518,4 @@ document.addEventListener("DOMContentLoaded", () => {
   $("#accuse-form").addEventListener("submit", accuse);
 });
 })();
+
