@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RED ROOM · Énoncés</title>
+<meta name="description" content="Énoncés des pièces à conviction, avec deux indices par épreuve.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><circle cx='8' cy='8' r='6' fill='%23d00'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Creepster&family=Special+Elite&family=VT323&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=20261126">
+</head>
+<body>
+<div class="scanlines" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+
+<header class="top">
+  <div class="brand"><span class="dot"></span><span class="vhs small" data-text="RED ROOM">RED ROOM</span></div>
+  <nav>
+    <a href="redroom.html#direct">Le direct</a>
+    <a href="redroom.html#pieces">Soumettre un flag</a>
+    <a href="redroom.html#archives">Archives</a>
+    <a href="#top">Énoncés</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="panel">
+    <h2 class="title">Énoncés des épreuves</h2>
+    <p>Chaque pièce à conviction cache <b>un seul vrai flag</b> au format obligatoire <code>B1{...}</code>. Les faux flags sont nombreux : vérifie toujours ce que tu trouves.</p>
+    <p>Tu as droit à <b>2 indices par épreuve</b>. Ils expliquent <i>comment</i> trouver le flag, sans le donner. Le second ne se débloque qu'après le premier.</p>
+    <p class="hint-count" id="hint-total"></p>
+    <p class="muted">Les flags se soumettent sur la page <a href="redroom.html#pieces">Pièces à conviction</a>.</p>
+  </section>
+  <section class="panel" id="list"></section>
+</main>
+
+<footer class="foot"><p>Il compte tes indices. Il ne dit pas pourquoi.</p></footer>
+<div id="whisper" class="whisper" aria-live="polite"></div>
+
+<script src="data.js?v=20261126"></script>
+<script src="enonces.js?v=20261126"></script>
+</body>
+</html>

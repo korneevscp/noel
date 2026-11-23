@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>RED ROOM · Organisateurs</title>
+<meta name="description" content="Espace réservé aux organisateurs du CTF.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><circle cx='8' cy='8' r='6' fill='%23d00'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Creepster&family=Special+Elite&family=VT323&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=20261126">
+</head>
+<body>
+<div class="scanlines" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+
+<header class="top">
+  <div class="brand"><span class="dot"></span><span class="vhs small" data-text="RED ROOM">RED ROOM</span></div>
+  <nav><a href="redroom.html">Retour au jeu</a></nav>
+</header>
+
+<main>
+  <section class="panel orga-login" id="login">
+    <p class="orga-warning">⛔ Réservé aux organisateurs du CTF.<br>Accès interdit aux joueurs.</p>
+    <form id="orga-form" autocomplete="off">
+      <label for="orga-user">Nom d'utilisateur</label>
+      <input id="orga-user" autocomplete="username" spellcheck="false" required>
+      <label for="orga-pass">Mot de passe</label>
+      <input id="orga-pass" type="password" autocomplete="current-password" required>
+      <button class="btn btn-red" id="orga-btn">Se connecter</button>
+      <p id="orga-msg" class="msg" aria-live="polite"></p>
+    </form>
+  </section>
+
+  <section class="panel" id="orga-content" hidden></section>
+</main>
+
+<script src="data.js?v=20261126"></script>
+<script src="orga.js?v=20261126"></script>
+</body>
+</html>

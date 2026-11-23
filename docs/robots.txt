@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /redroom.html
+Disallow: /cam03/
+# Les cameras de l atelier sont en maintenance. Ne pas indexer.

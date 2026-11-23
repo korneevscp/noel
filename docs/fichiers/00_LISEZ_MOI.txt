@@ -1,0 +1,25 @@
+=====================================================================
+          RED ROOM  -  QUI A ENLEVÉ LE PÈRE NOËL ?
+=====================================================================
+
+Je m'appelle Holly. J'ai enquêté avant toi.
+J'ai trouvé quatre drapeaux sur cinq. Puis j'ai eu peur, et j'ai arrêté.
+
+Le 1er décembre à 03h13, le Père Noël a disparu de l'atelier.
+Le lendemain, un direct a commencé à circuler : un vieil homme attaché
+sur une chaise, dans une pièce toute rouge.
+
+Voici les 5 pièces que j'ai récupérées. Chacune cache UN vrai flag.
+
+  01  01_la_carte_de_rancon.jpg      (photo)
+  02  02_photo_du_reveillon.png      (photo)
+  03  03_la_musique_du_direct.wav    (audio)
+  04  04_camera_du_traineau.mp4      (vidéo)
+  05  05_lettre_de_lea.txt           (texte)
+
+Format obligatoire : B1{...}
+Si tu trouves B1{X01.EXE ta bien eu ses un fake}, c'est un faux : continue.
+Les énoncés et 2 indices par épreuve sont sur le site.
+
+Finis ce que je n'ai pas pu finir.
+- H.

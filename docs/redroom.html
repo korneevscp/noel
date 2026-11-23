@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RED ROOM</title>
+<meta name="description" content="Le Père Noël a été enlevé. Le direct a commencé. Trouve qui l'a fait.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><circle cx='8' cy='8' r='6' fill='%23d00'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Creepster&family=Special+Elite&family=VT323&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=20261126">
+</head>
+<!-- le flag n'est pas dans le code source. arrête de fouiller. ... bon, d'accord : QjF7WDAxLkVYRSB0YSBiaWVuIGV1IHNlcyB1biBmYWtlfQ== -->
+<body>
+<canvas id="noise" aria-hidden="true"></canvas>
+<div class="scanlines" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+
+<section id="gate" class="gate">
+  <div class="gate-box">
+    <p class="rec"><span class="dot"></span> REC</p>
+    <h1 class="vhs" data-text="RED ROOM">RED ROOM</h1>
+    <p class="gate-sub">Le Père Noël a été enlevé.<br>Le direct a commencé.</p>
+    <p class="warn">⚠ Jeu d'horreur fictif : ambiance angoissante, messages qui s'adressent à toi, sons, effets clignotants.</p>
+    <div class="gate-actions">
+      <button id="enter-sound" class="btn btn-red">Entrer avec le son</button>
+      <button id="enter-mute" class="btn">Entrer sans le son</button>
+    </div>
+    <label class="calm"><input type="checkbox" id="calm-mode"> Réduire les effets (clignotements, parasites)</label>
+    <p class="gate-foot" id="gate-time"></p>
+  </div>
+</section>
+
+<div id="app" hidden>
+  <header class="top">
+    <div class="brand">
+      <span class="dot"></span>
+      <span class="vhs small" data-text="RED ROOM">RED ROOM</span>
+    </div>
+    <nav>
+      <a href="#jouer">Comment jouer</a>
+      <a href="#pieces">Épreuves</a>
+      <a href="enonces.html">Énoncés &amp; indices</a>
+      <a href="#archives">Archives</a>
+      <a href="#accuser">Accuser</a>
+    </nav>
+    <div class="eyes" aria-hidden="true"><span class="eye"><i></i></span><span class="eye"><i></i></span></div>
+    <button id="sound-toggle" class="icon-btn" title="Son">🔇</button>
+  </header>
+
+  <section id="jouer" class="panel howto">
+    <h2 class="title">Comment jouer</h2>
+    <ol class="steps">
+      <li><b>Lis l'énoncé</b> d'une épreuve sur la page <a href="enonces.html">Énoncés &amp; indices</a>.</li>
+      <li><b>Télécharge le fichier</b> et cherche le message caché dedans (stéganographie).</li>
+      <li><b>Soumets le flag</b> trouvé dans la carte de l'épreuve, plus bas. Format obligatoire : <code>B1{...}</code></li>
+      <li><b>Chaque vrai flag</b> débloque une lettre et un enregistrement dans les <a href="#archives">Archives</a>.</li>
+      <li><b>Avec les 5 vrais flags</b>, <a href="#accuser">accuse le coupable</a>.</li>
+    </ol>
+    <p class="tip">Bloqué ? Chaque épreuve a <b>2 indices</b> sur la page des énoncés.<br>
+      Tu trouves <code>B1{X01.EXE ta bien eu ses un fake}</code> ? C'est un <b>faux</b> flag : il t'a eu, continue de chercher.</p>
+  </section>
+
+  <section id="direct" class="panel">
+    <div class="stream">
+      <div class="stream-screen">
+        <img src="img/direct.png" alt="Diffusion en direct : un homme en manteau rouge attaché sur une chaise, dans une pièce rouge.">
+        <div class="stream-noise"></div>
+        <div class="stream-hud">
+          <span class="live"><span class="dot"></span> LIVE</span>
+          <span id="viewers">spectateurs : 1 666</span>
+        </div>
+        <div class="stream-countdown">NOËL DANS <b id="countdown">--:--:--</b></div>
+      </div>
+      <aside class="chat" aria-label="Chat du direct">
+        <div class="chat-head">CHAT EN DIRECT</div>
+        <ul id="chat-log"></ul>
+      </aside>
+    </div>
+    <div class="story">
+      <h2 class="title">1er décembre, 03h13</h2>
+      <p>Le Père Noël a disparu de l'atelier. Le lendemain, ce direct a commencé à circuler : un vieil homme attaché sur une chaise, un compte à rebours jusqu'à minuit, le 24.</p>
+      <p>Deux enquêteurs ont essayé avant toi. L'un a abandonné. L'autre... on ne sait pas.</p>
+      <p class="mission">TA MISSION : trouver <b>QUI</b> a enlevé le Père Noël.</p>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2 class="title">Ta progression</h2>
+    <p class="muted">Chaque vrai flag révèle une lettre.</p>
+    <div id="letters" class="letters" aria-label="Lettres découvertes"></div>
+    <p id="progress-text" class="muted"></p>
+  </section>
+
+  <section id="pieces" class="panel">
+    <h2 class="title">Épreuves</h2>
+    <p class="muted">5 épreuves : 2 photos, 1 audio, 1 vidéo, 1 texte. Télécharge le fichier, trouve le flag, soumets-le dans la même carte.</p>
+    <div class="cases" id="cases"></div>
+    <div class="free-submit">
+      <h3>Tu ne sais pas à quelle épreuve appartient ton flag ?</h3>
+      <form id="free-form" autocomplete="off">
+        <input id="free-input" placeholder="B1{...}" spellcheck="false" aria-label="Flag">
+        <button class="btn">Vérifier</button>
+      </form>
+      <p id="free-msg" class="msg" aria-live="polite"></p>
+    </div>
+    <div class="extras">
+      <a class="extra" href="fichiers/00_LISEZ_MOI.txt" download>00_LISEZ_MOI.txt</a>
+      <a class="extra" href="fichiers/ARRETE_MAINTENANT.txt" download>ARRETE_MAINTENANT.txt <small>(on ne sait pas qui l'a mis là)</small></a>
+      <a class="extra" href="fichiers/bonus_nom_du_coupable.png" download>bonus_nom_du_coupable.png <small>(trouvé sur un forum)</small></a>
+    </div>
+  </section>
+
+  <section id="dossier" class="panel">
+    <h2 class="title">Les suspects</h2>
+    <div class="suspects" id="suspects"></div>
+  </section>
+
+  <section id="archives" class="panel">
+    <h2 class="title">Archives</h2>
+    <p class="muted">Chaque épreuve résolue débloque un enregistrement : le direct, le carnet de l'enquêtrice précédente, des messages interceptés.</p>
+    <div id="archives-list" class="archives"></div>
+  </section>
+
+  <section id="accuser" class="panel">
+    <h2 class="title">Accuser</h2>
+    <div id="accuse-locked" class="locked-box">
+      <p>Résous d'abord les 5 épreuves.</p>
+      <p class="muted">Ou alors tu n'as pas envie de savoir. Ce serait plus sage.</p>
+    </div>
+    <form id="accuse-form" hidden>
+      <p>Qui a enlevé le Père Noël ?</p>
+      <div class="accuse-grid" id="accuse-grid"></div>
+      <button class="btn btn-red">ACCUSER</button>
+      <p id="accuse-msg" class="msg" aria-live="polite"></p>
+    </form>
+  </section>
+
+  <footer class="foot">
+    <p>Jeu fictif. Aucun Père Noël n'a été maltraité. Probablement.</p>
+    <button id="reset" class="link-btn">Effacer ma progression</button>
+    <a href="orga.html" class="link-btn">Espace organisateurs</a>
+    <button id="calm-toggle" class="link-btn">Effets réduits : non</button>
+  </footer>
+</div>
+
+<div id="whisper" class="whisper" aria-live="polite"></div>
+
+<section id="ending" class="ending" hidden>
+  <div class="ending-box">
+    <div id="ending-text"></div>
+  </div>
+</section>
+
+<script src="data.js?v=20261126"></script>
+<script src="app.js?v=20261126"></script>
+</body>
+</html>

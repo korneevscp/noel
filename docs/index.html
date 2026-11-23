@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atelier du Pôle Nord · Intranet</title>
+<meta name="description" content="Intranet des employés de l'Atelier du Pôle Nord. Accès réservé.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='13' font-size='13'>🎄</text></svg>">
+<style>  :root { --bg: #f6f3ee; --card: #ffffff; --ink: #2b2b2b; --muted: #6f6a64; --green: #1f6b3a; --red: #b3122a; --line: #e2dcd2; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.55 "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  a { color: var(--green); }
+  header { background: var(--green); color: #fff; padding: 14px 16px; }
+  .wrap { max-width: 1000px; margin: 0 auto; padding: 0 16px; }
+  header .wrap { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  header h1 { font-size: 21px; margin: 0; font-weight: 600; }
+  header nav { margin-left: auto; display: flex; gap: 16px; font-size: 14px; }
+  header nav a { color: #e6f2ea; text-decoration: none; }
+  .banner { background: #fff7d6; border-bottom: 1px solid #ecdca0; font-size: 14px; padding: 8px 16px; text-align: center; }
+  main { display: grid; grid-template-columns: 2fr 1fr; gap: 20px; padding: 24px 16px; max-width: 1000px; margin: 0 auto; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 18px 20px; margin-bottom: 20px; }
+  .card h2 { font-size: 18px; margin: 0 0 10px; color: var(--green); }
+  .news article { border-bottom: 1px solid var(--line); padding: 10px 0; }
+  .news article:last-child { border: 0; }
+  .news h3 { margin: 0 0 4px; font-size: 16px; }
+  .news time { color: var(--muted); font-size: 13px; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { text-align: left; padding: 6px 4px; border-bottom: 1px solid var(--line); }
+  th { color: var(--muted); font-weight: 600; }
+  .st-ok { color: var(--green); } .st-old { color: var(--muted); } .st-bad { color: var(--red); }
+  .ghost { color: var(--card); user-select: text; font-size: 12px; }
+  .stat { font-size: 30px; font-weight: 700; color: var(--green); }
+  footer { text-align: center; color: var(--muted); font-size: 13px; padding: 20px 16px 40px; }
+  .jitter { animation: gl .25s steps(2) 3; }
+  @keyframes gl { 50% { transform: translateX(3px); color: var(--red); text-shadow: -2px 0 #0ff; } }
+  .redflash { position: fixed; inset: 0; background: #900; mix-blend-mode: multiply; opacity: 0; pointer-events: none; transition: opacity .08s; }
+  .redflash.on { opacity: .55; }
+  @media (max-width: 760px) { main { grid-template-columns: 1fr; } header nav { margin-left: 0; width: 100%; } }
+  .signal { margin: 6px 0 0; font-size: 14px; color: var(--muted); }
+  .suspect-link { color: var(--red); font-weight: 600; text-decoration: none; border-bottom: 1px dashed var(--red); }
+  .suspect-link:hover { background: var(--red); color: #fff; }
+  @media (prefers-reduced-motion: reduce) { .jitter { animation: none; } }
+</style>
+</head>
+<!-- intranet v3.1.1997 - maintenance cameras en cours (cf. robots.txt) -->
+<body>
+<div class="banner">🎅 Le Père Noël prend quelques jours de repos bien mérités. Merci de ne pas relayer les rumeurs.</div>
+<header>
+  <div class="wrap">
+    <h1>🎄 Atelier du Pôle Nord · Intranet employés</h1>
+    <nav><a href="#actus">Actualités</a><a href="#annuaire">Annuaire</a><a href="#prod">Production</a></nav>
+  </div>
+</header>
+
+<main>
+  <div>
+    <section class="card news" id="actus">
+      <h2>Actualités</h2>
+      <article>
+        <h3>Communiqué de la direction</h3>
+        <time>1er décembre</time>
+        <p id="n1">Le Père Noël a choisi de se reposer quelques jours avant la grande tournée. Toutes les livraisons sont maintenues. Aucune inquiétude à avoir.</p>
+      </article>
+      <article>
+        <h3>Maintenance des caméras de l'atelier</h3>
+        <time>1er décembre, 03:13</time>
+        <p>Suite à un incident technique, la caméra n°03 (hangar du traîneau) est temporairement hors service. Merci de ne pas tenter d'y accéder.</p>
+      </article>
+      <article>
+        <h3>Rappel : liens frauduleux</h3>
+        <time>2 décembre</time>
+        <p>Un lien vers une « diffusion en direct » circule sur les forums. Il s'agit d'un canular. <b>Ne cliquez pas.</b> Signalez tout lien suspect au service informatique.</p>
+        <p class="signal">Lien signalé : <a href="redroom.html" class="suspect-link">● diffusion-en-direct</a></p>
+      </article>
+      <article>
+        <h3>Les machines fêtent leurs 29 ans !</h3>
+        <time>Archive</time>
+        <p id="n4">Depuis 1997, nos machines de production assurent 100&nbsp;% des jouets. Merci à elles ! (Et merci aux anciens lutins pour leurs années de service.)</p>
+      </article>
+    </section>
+
+    <section class="card" id="annuaire">
+      <h2>Annuaire du personnel</h2>
+      <table>
+        <thead><tr><th>Nom</th><th>Service</th><th>Statut</th><th>Fiche</th></tr></thead>
+        <tbody>
+          <tr><td>Père Noël</td><td>Direction</td><td class="st-old">En repos</td><td><a href="employes/pere-noel">voir</a></td></tr>
+          <tr><td>Mère Noël</td><td>Direction</td><td class="st-ok">Active</td><td><a href="employes/mere-noel">voir</a></td></tr>
+          <tr><td>Rudolph</td><td>Logistique aérienne</td><td class="st-ok">Actif</td><td><a href="employes/rudolph">voir</a></td></tr>
+          <tr><td>Bonhomme de Neige</td><td>Sécurité</td><td class="st-bad">Fondu (2 déc.)</td><td><a href="employes/bonhomme">voir</a></td></tr>
+          <tr><td>Machine M-01</td><td>Production</td><td class="st-ok">En service</td><td><a href="employes/m-01">voir</a></td></tr>
+          <tr><td>Lutins n°1 à n°300</td><td>Production (ancien)</td><td class="st-old">Contrats terminés (1997)</td><td><a href="employes/anciens">voir</a></td></tr>
+        </tbody>
+      </table>
+      <p class="ghost">il n'est pas en vacances. ils le savent. regarde la caméra 03.</p>
+    </section>
+  </div>
+
+  <aside>
+    <section class="card" id="prod">
+      <h2>Production du jour</h2>
+      <div class="stat" id="toys">1 204 377</div>
+      <p style="margin:0;color:var(--muted)">jouets fabriqués aujourd'hui</p>
+    </section>
+    <section class="card">
+      <h2>Compte à rebours</h2>
+      <p style="margin:0">Noël dans <b id="cd">--</b></p>
+    </section>
+    <section class="card">
+      <h2>Message du jour</h2>
+      <p id="motd">« La magie de Noël, c'est d'être ensemble. »</p>
+    </section>
+  </aside>
+</main>
+
+<footer>© Atelier du Pôle Nord · Intranet v3.1 · Accès réservé aux employés actifs</footer>
+<div class="redflash" id="rf" aria-hidden="true"></div>
+
+<script>(() => {
+  let toys = 1204377;
+  setInterval(() => { toys += Math.floor(Math.random() * 40); document.getElementById("toys").textContent = toys.toLocaleString("fr-FR"); }, 1200);
+  const cd = () => {
+    const now = new Date(); let t = new Date(now.getFullYear(), 11, 25);
+    if (now >= t) t = new Date(now.getFullYear() + 1, 11, 25);
+    const d = Math.ceil((t - now) / 86400000);
+    document.getElementById("cd").textContent = d + " jour" + (d > 1 ? "s" : "");
+  };
+  cd(); setInterval(cd, 60000);
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const swaps = [
+    ["n1", "Le Père Noël a choisi de se reposer quelques jours avant la grande tournée.", "IL NE SE REPOSE PAS. IL EST ATTACHÉ. AIDEZ-LE."],
+    ["n4", "Depuis 1997, nos machines de production assurent 100 % des jouets.", "Depuis 1997, personne ne nous a cherchés."],
+    ["motd", "« La magie de Noël, c'est d'être ensemble. »", "« Pourquoi tu me cherches ? »"],
+  ];
+  let level = 0;
+  const vhs = () => {
+    level++;
+    const [id, orig, alt] = swaps[Math.floor(Math.random() * swaps.length)];
+    const el = document.getElementById(id);
+    const keep = el.innerHTML;
+    el.textContent = alt;
+    if (!reduce) el.classList.add("jitter");
+    if (level > 2 && !reduce) { const rf = document.getElementById("rf"); rf.classList.add("on"); setTimeout(() => rf.classList.remove("on"), 120); }
+    setTimeout(() => { el.innerHTML = keep; el.classList.remove("jitter"); }, 140 + level * 40);
+    setTimeout(vhs, Math.max(6000, 30000 - level * 3000) + Math.random() * 8000);
+  };
+  setTimeout(vhs, 25000);
+  document.addEventListener("visibilitychange", () => { document.title = document.hidden ? "Reviens..." : "Atelier du Pôle Nord · Intranet"; });
+  console.log("%cIntranet de l'Atelier. Les caméras sont en maintenance. N'insistez pas.", "color:#1f6b3a;font-size:14px");
+  console.log("%c" + atob("QjF7WDAxLkVYRSB0YSBiaWVuIGV1IHNlcyB1biBmYWtlfQ=="), "color:#f6f3ee");
+})();
+</script>
+</body>
+</html>

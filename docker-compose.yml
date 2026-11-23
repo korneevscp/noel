@@ -1,0 +1,8 @@
+services:
+  redroom:
+    build: .
+    image: redroom-arg:latest
+    container_name: redroom
+    ports:
+      - "${PORT:-8080}:80"
+    restart: unless-stopped

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CAM 03 · HORS SERVICE</title>
+<meta name="description" content="Caméra 03 - hangar du traîneau. Hors service.">
+<style>  * { box-sizing: border-box; }
+  body { margin: 0; background: #000; color: #7dff9a; font-family: Consolas, "Courier New", monospace; font-size: 16px; }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 20px 16px; }
+  .screen { position: relative; aspect-ratio: 16 / 9; background: #071007; border: 2px solid #1d3a1d; overflow: hidden; }
+  canvas { width: 100%; height: 100%; display: block; image-rendering: pixelated; }
+  .hud { position: absolute; top: 8px; left: 10px; right: 10px; display: flex; justify-content: space-between; font-size: 18px; text-shadow: 0 0 4px #0f0; }
+  .rec { color: #ff4040; }
+  .center { position: absolute; inset: 0; display: grid; place-items: center; font-size: clamp(22px, 5vw, 44px); color: #b9ffc8; text-shadow: 0 0 10px #0f0; }
+  pre { white-space: pre-wrap; background: #031003; border: 1px solid #1d3a1d; padding: 14px; line-height: 1.45; font-size: 15px; }
+  .red { color: #ff5050; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="screen">
+    <canvas id="c" width="160" height="90" aria-hidden="true"></canvas>
+    <div class="hud"><span>CAM 03 · HANGAR TRAÎNEAU</span><span class="rec">● REC</span></div>
+    <div class="center" id="msg">AUCUN SIGNAL</div>
+  </div>
+  <h2>Journal de la caméra 03 (export automatique)</h2>
+<pre>
+01/12 03:09  mouvement détecté - hangar
+01/12 03:11  ouverture porte est (badge : <span class="red">EXPIRÉ 1997 - accès accordé ??</span>)
+01/12 03:12  deux silhouettes. une grande (manteau rouge). une petite (bonnet pointu).
+01/12 03:13  la petite silhouette regarde la caméra. elle fait coucou.
+01/12 03:13  <span class="red">SIGNAL COUPÉ</span>
+01/12 03:13  ...
+02/12 00:00  flux redirigé vers : [destination masquée]
+02/12 00:00  opérateur : ▲
+
+note de l'opérateur :
+  tu as lu robots.txt. tout le monde lit robots.txt.
+  tu crois que j'ai oublié de cacher cette page ? je l'ai laissée pour toi.
+  tiens, un souvenir : B1{X01.EXE ta bien eu ses un fake}
+  (ne le soumets pas. ou si. j'aime bien te voir te tromper.)
+</pre>
+  <p><a href="../redroom.html" style="color:#ff5050">→ le direct</a></p>
+</div>
+<script>(() => {
+  const c = document.getElementById("c"), x = c.getContext("2d"), im = x.createImageData(160, 90);
+  const words = ["AUCUN SIGNAL", "AUCUN SIGNAL", "AUCUN SIGNAL", "JE TE VOIS", "AUCUN SIGNAL", "POURQUOI TU ME CHERCHES ?"];
+  setInterval(() => { for (let i = 0; i < im.data.length; i += 4) { const v = Math.random() * 120; im.data[i] = v * .3; im.data[i + 1] = v; im.data[i + 2] = v * .3; im.data[i + 3] = 255; } x.putImageData(im, 0, 0); }, 90);
+  setInterval(() => { const m = document.getElementById("msg"); m.textContent = words[Math.floor(Math.random() * words.length)]; setTimeout(() => m.textContent = "AUCUN SIGNAL", 300); }, 7000);
+})();
+</script>
+</body>
+</html>
